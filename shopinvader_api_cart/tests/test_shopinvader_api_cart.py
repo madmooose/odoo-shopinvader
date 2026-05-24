@@ -300,7 +300,14 @@ class TestSaleCart(CommonSaleCart):
         self.assertEqual(2, line.product_uom_qty)
         self.assertEqual(
             so.applied_cart_api_transaction_uuids,
-            f"{self.trans_uuid_1},{self.trans_uuid_2},{self.trans_uuid_3},{self.trans_uuid_4}",
+            ",".join(
+                [
+                    self.trans_uuid_1,
+                    self.trans_uuid_2,
+                    self.trans_uuid_3,
+                    self.trans_uuid_4,
+                ]
+            ),
         )
 
     def test_multi_transactions_same_product1(self) -> None:
@@ -322,7 +329,14 @@ class TestSaleCart(CommonSaleCart):
         self.assertEqual(0, len(line))
         self.assertEqual(
             so.applied_cart_api_transaction_uuids,
-            f"{self.trans_uuid_1},{self.trans_uuid_2},{self.trans_uuid_3},{self.trans_uuid_4}",
+            ",".join(
+                [
+                    self.trans_uuid_1,
+                    self.trans_uuid_2,
+                    self.trans_uuid_3,
+                    self.trans_uuid_4,
+                ]
+            ),
         )
 
     def test_multi_transactions_update_same_product(self) -> None:
@@ -355,7 +369,7 @@ class TestSaleCart(CommonSaleCart):
         self.assertEqual(0, len(line))
         self.assertEqual(
             so.applied_cart_api_transaction_uuids,
-            f"{self.trans_uuid_1},{self.trans_uuid_2},{self.trans_uuid_3}",
+            ",".join([self.trans_uuid_1, self.trans_uuid_2, self.trans_uuid_3]),
         )
 
     def test_multi_transactions_multi_products_all_create(self) -> None:
@@ -384,7 +398,14 @@ class TestSaleCart(CommonSaleCart):
         self.assertEqual(2, line_product_2_id.product_uom_qty)
         self.assertEqual(
             so.applied_cart_api_transaction_uuids,
-            f"{self.trans_uuid_1},{self.trans_uuid_2},{self.trans_uuid_3},{self.trans_uuid_4}",
+            ",".join(
+                [
+                    self.trans_uuid_1,
+                    self.trans_uuid_2,
+                    self.trans_uuid_3,
+                    self.trans_uuid_4,
+                ]
+            ),
         )
 
     def test_multi_transactions_multi_products_mix_create_update(self) -> None:
@@ -436,7 +457,7 @@ class TestSaleCart(CommonSaleCart):
         self.assertEqual(2, line_product_2_id.product_uom_qty)
         self.assertEqual(
             so.applied_cart_api_transaction_uuids,
-            f"{self.trans_uuid_2},{self.trans_uuid_3},{self.trans_uuid_4}",
+            ",".join([self.trans_uuid_2, self.trans_uuid_3, self.trans_uuid_4]),
         )
 
     def test_update(self) -> None:

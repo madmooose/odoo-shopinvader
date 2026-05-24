@@ -1,0 +1,2 @@
+[extra-build-dependencies]
+file = ["setuptools"]

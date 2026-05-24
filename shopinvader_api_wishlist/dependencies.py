@@ -172,7 +172,7 @@ class ShopinvaderApiWishlistRouterHelper(models.AbstractModel):
                 )
             elif raise_if_not_found:
                 raise MissingError(
-                    f"Line with product_id {line.product_id} not found in "
+                    f"Line with product_id {line.product_id} missing from "
                     f"wishlist {record_id}"
                 )
             else:
@@ -213,7 +213,7 @@ class ShopinvaderApiWishlistRouterHelper(models.AbstractModel):
             for line in rqst.lines:
                 if line not in set_line_by_line_identifier:
                     raise MissingError(
-                        f"Line with product_id {line.product_id} not found in "
+                        f"Line with product_id {line.product_id} missing from "
                         f"wishlist {record_id}"
                     )
         set_line_ids = [line.id for line in set_line_by_line_identifier.values()]
@@ -235,7 +235,7 @@ class ShopinvaderApiWishlistRouterHelper(models.AbstractModel):
             for line in rqst.lines:
                 if line not in set_line_by_line_identifier:
                     raise MissingError(
-                        f"Line with product_id {line.product_id} not found in "
+                        f"Line with product_id {line.product_id} missing from "
                         f"wishlist {record_id}"
                     )
         update_vals = []
@@ -271,7 +271,7 @@ class ShopinvaderApiWishlistRouterHelper(models.AbstractModel):
             for line in rqst.lines:
                 if line not in set_line_by_line_identifier:
                     raise MissingError(
-                        f"Line with product_id {line.product_id} not found in "
+                        f"Line with product_id {line.product_id} missing from "
                         f"wishlist {record_id}"
                     )
         set_line_ids_by_destination = defaultdict(list)
